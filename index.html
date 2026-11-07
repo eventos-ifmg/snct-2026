@@ -196,6 +196,17 @@
   .card[data-tone="4"]{ --tone:var(--magenta); }
   .card[data-tone="5"]{ --tone:var(--yellow); }
 
+  /* Destaques (opção  destaque: "amarelo" | "roxo"  na atividade) */
+  .card[data-destaque="amarelo"]{ background:var(--yellow); border-color:#E8B800; }
+  .card[data-destaque="amarelo"]::before{ background:var(--orange); }
+  .card[data-destaque="amarelo"] .time{ color:var(--ink); }
+  .card[data-destaque="amarelo"] .who{ color:#4A3D00; }
+  .card[data-destaque="roxo"]{ background:var(--purple); border-color:var(--purple); color:#fff; }
+  .card[data-destaque="roxo"]::before{ background:var(--yellow); }
+  .card[data-destaque="roxo"] .time, .card[data-destaque="roxo"] .who, .card[data-destaque="roxo"] .who b{ color:#fff; }
+  .card[data-destaque="roxo"] .tag.local{ background:rgba(255,255,255,.14); border-color:rgba(255,255,255,.3); color:#fff; }
+  .card[data-destaque="roxo"] .cta{ background:var(--yellow); color:var(--ink); }
+  .card[data-destaque="roxo"] .cta:hover{ background:#fff; }
   .time{ font-family:var(--font-display); font-weight:700; font-size:18px; color:var(--purple); line-height:1.2; padding-top:2px; }
   .body h3{ font-family:var(--font-display); font-weight:700; font-size:clamp(18px, 2.4vw, 22px); line-height:1.2; margin:0 0 6px; }
   .who{ margin:0; color:var(--muted); font-size:15px; }
@@ -299,6 +310,7 @@
       display:inline-block; width:fit-content; font-size:15px;
       padding:4px 12px; border-radius:var(--radius-pill); background:var(--purple); color:#fff;
     }
+    .card[data-destaque] .time{ background:var(--ink); color:#fff; }
     .side{ flex-direction:row; flex-wrap:wrap; align-items:center; margin-top:6px; }
     .cta{ margin:0 0 0 auto; }
     .empty{ grid-template-columns:1fr; text-align:center; justify-items:center; }
@@ -419,12 +431,9 @@ const PROGRAMACAO = [
     data:   "26/11",
     itens: [
       {
-        horario:     "8h – 10h",
-        titulo:      "Palestra de Abertura",
-        proponentes: ["A definir"],
-        papel:       "Palestrante",
-        local:       "Quadra",
-        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5440/"
+        horario:     "12h – 13h30",
+        titulo:      "Almoço / Apresentação Cultural",
+        destaque:    "amarelo"
       },
       {
         horario:     "13h30 – 14h30",
@@ -488,6 +497,14 @@ const PROGRAMACAO = [
         proponentes: ["Bárbara Regina Pinto e Oliveira"],
         local:       "Corredores e Áreas de Convivência do 2º Andar",
         tipo:        "Feira"
+      },
+      {
+        horario:     "19h – 21h",
+        titulo:      "Palestra de Abertura – Mulheres nas ciências: possibilidades e desafios",
+        proponentes: ["Profª Drª Hersília de Andrade e Santos", "Maria Eduarda Celestino"],
+        papel:       "Palestrante",
+        local:       "Quadra",
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5457/"
       }
     ]
   },
@@ -761,6 +778,7 @@ const PROGRAMACAO = [
     itens.forEach(i => {
       const card = el("article", "card");
       card.dataset.tone = tom(i.tipo);
+      if (i.destaque) card.dataset.destaque = i.destaque;
 
       card.append(el("div", "time", i.horario || ""));
 
