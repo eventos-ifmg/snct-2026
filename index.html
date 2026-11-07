@@ -581,7 +581,93 @@ const PROGRAMACAO = [
       }
     ]
   },
-  { rotulo: "Sábado",      data: "28/11", itens: [ ] }
+  {
+    rotulo: "Sábado",
+    data:   "28/11",
+    itens: [
+      {
+        horario:     "9h – 12h",
+        titulo:      "Mostra Tecnológica",
+        proponentes: ["2º Ano do Curso Técnico em Eletrônica"],
+        local:       "Quadra"
+      },
+      {
+        horario:     "9h – 12h",
+        titulo:      "Projeto Interdisciplinar Lixo Zero",
+        proponentes: ["1ºs Anos dos Cursos Técnicos"],
+        papel:       "Proponentes",
+        local:       "Quadra"
+      },
+      {
+        horario:     "9h – 12h",
+        titulo:      "Projeto Interdisciplinar Democracia, Direitos & Diversidade",
+        proponentes: ["3ºs Anos dos Cursos Técnicos"],
+        papel:       "Proponentes",
+        local:       "Quadra"
+      },
+      {
+        horario:     "9h – 12h",
+        titulo:      "Jogos e brincadeiras com material reciclável",
+        proponentes: ["Cursos Técnicos"],
+        papel:       "Proponentes",
+        local:       "Quadra"
+      },
+      {
+        horario:     "9h – 12h",
+        titulo:      "Pré-incubação de Empresas Desenvolvida pelo Ambiente de Inovação do IFMG, Campus Sabará",
+        local:       "Sala T07"
+      },
+      {
+        horario:     "9h – 12h",
+        titulo:      "Feira Empreendedores",
+        proponentes: ["3º Ano do Curso Técnico em Administração"],
+        local:       "Sala T08"
+      },
+      {
+        horario:     "9h – 12h",
+        titulo:      "Vozes da Comunidade e Retrato dos Bairros do Município de Sabará/MG",
+        proponentes: ["Curso de Bacharelado em Administração"],
+        local:       "Sala T09"
+      },
+      {
+        horario:     "9h – 12h",
+        titulo:      "Projeto de Extensão: Interação Tecnológica: Prototipagem e Divulgação da Engenharia de Controle e Automação em Sabará e Região",
+        proponentes: ["4º Período"],
+        local:       "Sala T10"
+      },
+      {
+        horario:     "9h – 12h",
+        titulo:      "Mostra de Ciências",
+        proponentes: ["2º Ano do Curso Técnico em Informática"],
+        local:       "Tenda"
+      },
+      {
+        horario:     "9h – 12h",
+        titulo:      "Exposição de Livros Pop-Up de Sólidos Geométricos",
+        proponentes: ["2ºs Anos dos Cursos Técnicos"],
+        papel:       "Proponentes",
+        local:       "Tenda"
+      },
+      {
+        horario:     "9h – 12h",
+        titulo:      "Programa Sabará + Ciência na Escola",
+        proponentes: ["Escolas Municipais de Sabará"],
+        papel:       "Proponentes",
+        local:       "Laboratório T03"
+      },
+      {
+        horario:     "9h – 12h",
+        titulo:      "Oficina de Apresentação das Equipes da Pré-incubação",
+        local:       "Laboratório de Informática · Sala 102"
+      },
+      {
+        horario:     "9h – 12h",
+        titulo:      "Apresentação dos Trabalhos Interdisciplinares",
+        proponentes: ["Curso de BSI"],
+        local:       "Auditório"
+      }
+    ]
+  }
 ];
 
 /* =====================================================================
@@ -674,6 +760,7 @@ const PROGRAMACAO = [
 
       const body = el("div", "body");
       body.append(el("h3", null, i.titulo));
+      if (i.detalhe) body.append(el("p", "who", i.detalhe));
       const nomes = Array.isArray(i.proponentes) ? i.proponentes : (i.proponentes ? [i.proponentes] : []);
       if (nomes.length){
         const who = el("p", "who");
