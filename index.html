@@ -508,7 +508,75 @@ const PROGRAMACAO = [
       }
     ]
   },
-  { rotulo: "Sexta", data: "27/11", itens: [ ] },
+  {
+    rotulo: "Sexta",
+    data:   "27/11",
+    itens: [
+      {
+        horario:     "13h30 – 15h30",
+        titulo:      "Vestígios Digitais: Sobre Memória e Internet",
+        proponentes: ["Luciane Silva de Almeida"],
+        local:       "Sala 109",
+        tipo:        "Roda de Conversa",
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5469/"
+      },
+      {
+        horario:     "13h30 – 15h30",
+        titulo:      "Confecção de Jogos de Tabuleiro",
+        proponentes: ["Daila Silva Seabra de Moura Fonseca"],
+        local:       "Sala 108",
+        tipo:        "Oficina",
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5468/"
+      },
+      {
+        horario:     "13h30 – 16h30",
+        titulo:      "Reaproveitamento de Papel",
+        proponentes: ["Aline Campos Figueiredo"],
+        local:       "Laboratório de Biologia · Sala T05",
+        tipo:        "Oficina",
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5466/"
+      },
+      {
+        horario:     "13h30 – 16h30",
+        titulo:      "Customização de Ecobags Feitas de Resíduos Têxteis",
+        proponentes: ["Aline Campos Figueiredo"],
+        local:       "Sala 107",
+        tipo:        "Oficina",
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5467/"
+      },
+      {
+        horario:     "13h30 – 16h30",
+        titulo:      "Vasos Autoirrigáveis de Garrafa PET",
+        proponentes: ["Aline Campos Figueiredo"],
+        local:       "Sala 106",
+        tipo:        "Oficina",
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5465/"
+      },
+      {
+        horario:     "13h30 – 16h30",
+        titulo:      "Projetec",
+        proponentes: ["Renato Miranda Filho"],
+        local:       "Auditório",
+        tipo:        "Apresentação de Trabalho",
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5474/"
+      },
+      {
+        horario:     "13h30 – 16h30",
+        titulo:      "Como Acolher Uma Vítima ou Testemunha de Violência? Formação Inicial Sobre Escuta Ativa e Acolhimento Humanizado",
+        proponentes: ["Ludmila Nogueira Murta"],
+        local:       "Sala 110",
+        tipo:        "Minicurso",
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5470/"
+      },
+      {
+        horario:     "13h30 – 16h30",
+        titulo:      "Feira de Empreendedores do IFMG",
+        proponentes: ["Bárbara Regina Pinto e Oliveira"],
+        local:       "Corredores e Áreas de Convivência do 2º Andar",
+        tipo:        "Feira"
+      }
+    ]
+  },
   { rotulo: "Sábado",      data: "28/11", itens: [ ] }
 ];
 
@@ -556,12 +624,12 @@ const PROGRAMACAO = [
       b.tabIndex = idx === diaAtual ? 0 : -1;
       b.append(document.createTextNode(d.rotulo));
       if (d.data) b.append(el("small", null, d.data));
-      b.addEventListener("click", () => { diaAtual = idx; renderTabs(); renderList(); });
+      b.addEventListener("click", () => { diaAtual = idx; renderTabs(); renderFilters(); renderList(); });
       b.addEventListener("keydown", (e) => {
         if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
         const n = PROGRAMACAO.length;
         diaAtual = (diaAtual + (e.key === "ArrowRight" ? 1 : n - 1)) % n;
-        renderTabs(); renderList();
+        renderTabs(); renderFilters(); renderList();
         tabs.children[diaAtual].focus();
       });
       tabs.append(b);
@@ -571,8 +639,10 @@ const PROGRAMACAO = [
 
   function renderFilters(){
     filters.textContent = "";
-    if (tipos.length < 2) { filters.hidden = true; return; }
-    ["Todos", ...tipos].forEach(t => {
+    const doDia = tipos.filter(t => PROGRAMACAO[diaAtual].itens.some(i => i.tipo === t));
+    if (filtroAtual !== "Todos" && !doDia.includes(filtroAtual)) filtroAtual = "Todos";
+    if (doDia.length < 2) { filters.hidden = true; filtroAtual = "Todos"; return; }
+    ["Todos", ...doDia].forEach(t => {
       const b = el("button", "filter", t);
       b.setAttribute("aria-pressed", String(t === filtroAtual));
       b.addEventListener("click", () => { filtroAtual = t; renderFilters(); renderList(); });
