@@ -226,6 +226,14 @@
   .who + .who{ margin-top:6px; }
   .who b{ font-weight:600; color:var(--ink); }
 
+  .plink{
+    color:var(--purple); font-weight:500; text-decoration:underline;
+    text-decoration-color:color-mix(in srgb, var(--purple) 40%, white); text-decoration-thickness:2px; text-underline-offset:3px;
+    transition:color .15s ease, text-decoration-color .15s ease;
+  }
+  .plink span{ font-size:.85em; }
+  .plink:hover{ color:var(--magenta); text-decoration-color:var(--magenta); }
+  .plink:focus-visible{ outline:3px solid var(--orange); outline-offset:2px; border-radius:4px; }
   .side{ display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
   .tag{
     display:inline-block; font-size:12.5px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
@@ -460,7 +468,7 @@ const PROGRAMACAO = [
       {
         horario:     "13h30 – 14h30",
         titulo:      "Consciência em Ação: a Importância do Descarte Correto de Lixo",
-        proponentes: ["Deyse de Brito Marthe"],
+        proponentes: [{ nome: "Profª Dra. Deyse de Brito Marthe", lattes: "http://lattes.cnpq.br/8856270958151865" }],
         local:       "Sala 109",
         tipo:        "Exibição de filme",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5458/"
@@ -468,7 +476,7 @@ const PROGRAMACAO = [
       {
         horario:     "13h30 – 15h30",
         titulo:      "Biojoias",
-        proponentes: ["Cristianele Lima Cardoso"],
+        proponentes: [{ nome: "Profª Ma. Cristianele Lima Cardoso", lattes: "http://lattes.cnpq.br/8297948805034595" }],
         local:       "Sala 104",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5459/"
@@ -476,7 +484,7 @@ const PROGRAMACAO = [
       {
         horario:     "13h30 – 15h30",
         titulo:      "Produção de Ecobags com Tintas Botânicas",
-        proponentes: ["Cristianele Lima Cardoso"],
+        proponentes: [{ nome: "Profª Ma. Cristianele Lima Cardoso", lattes: "http://lattes.cnpq.br/8297948805034595" }],
         local:       "Laboratório de Biologia · Sala T05",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5460/"
@@ -484,7 +492,7 @@ const PROGRAMACAO = [
       {
         horario:     "13h30 – 15h30",
         titulo:      "Operação Lixo Zero: Escape Room – Missão Planeta",
-        proponentes: ["Daila Silva Seabra de Moura Fonseca"],
+        proponentes: [{ nome: "Profª Ma. Daila Silva Seabra de Moura Fonseca", lattes: "http://lattes.cnpq.br/3852649343436952" }],
         local:       "Sala 110",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5477/"
@@ -492,7 +500,7 @@ const PROGRAMACAO = [
       {
         horario:     "13h30 – 15h30",
         titulo:      "Ecobottons",
-        proponentes: ["Daila Silva Seabra de Moura Fonseca"],
+        proponentes: [{ nome: "Profª Ma. Daila Silva Seabra de Moura Fonseca", lattes: "http://lattes.cnpq.br/3852649343436952" }],
         local:       "Sala 107",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5461/"
@@ -500,7 +508,7 @@ const PROGRAMACAO = [
       {
         horario:     "13h30 – 15h30",
         titulo:      "O Segredo do “Lixão”",
-        proponentes: ["Daila Silva Seabra de Moura Fonseca"],
+        proponentes: [{ nome: "Profª Ma. Daila Silva Seabra de Moura Fonseca", lattes: "http://lattes.cnpq.br/3852649343436952" }],
         local:       "Sala 108",
         tipo:        "Escape Room",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5462/"
@@ -508,7 +516,7 @@ const PROGRAMACAO = [
       {
         horario:     "13h30 – 16h30",
         titulo:      "Campeonato de Programação",
-        proponentes: ["Daniel Conrado"],
+        proponentes: [{ nome: "Prof. Me. Daniel Conrado", lattes: "http://lattes.cnpq.br/4469934696623908" }],
         local:       "Laboratório 202",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5463/"
@@ -516,14 +524,14 @@ const PROGRAMACAO = [
       {
         horario:     "13h30 – 16h30",
         titulo:      "Feira de Empreendedores do IFMG",
-        proponentes: ["Bárbara Regina Pinto e Oliveira"],
+        proponentes: [{ nome: "Profª Dra. Bárbara Regina Pinto e Oliveira", lattes: "http://lattes.cnpq.br/8477722907043174" }],
         local:       "Corredores e Áreas de Convivência do 2º Andar",
         tipo:        "Feira"
       },
       {
         horario:     "19h – 21h",
         titulo:      "Palestra de Abertura – Mulheres nas ciências: possibilidades e desafios",
-        proponentes: ["Profª Drª Hersília de Andrade e Santos", "Maria Eduarda Celestino"],
+        proponentes: [{ nome: "Profª Dra. Hersília de Andrade e Santos", lattes: "http://lattes.cnpq.br/3618369732101367" }, "Maria Eduarda Celestino"],
         papel:       "Palestrante",
         local:       "Quadra",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5457/"
@@ -537,7 +545,7 @@ const PROGRAMACAO = [
       {
         horario:     "13h30 – 15h30",
         titulo:      "Vestígios Digitais: Sobre Memória e Internet",
-        proponentes: ["Luciane Silva de Almeida"],
+        proponentes: [{ nome: "Profª Dra. Luciane Silva de Almeida", lattes: "http://lattes.cnpq.br/2003686159963628" }],
         local:       "Sala 109",
         tipo:        "Roda de Conversa",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5469/"
@@ -545,7 +553,7 @@ const PROGRAMACAO = [
       {
         horario:     "13h30 – 15h30",
         titulo:      "Confecção de Jogos de Tabuleiro",
-        proponentes: ["Daila Silva Seabra de Moura Fonseca"],
+        proponentes: [{ nome: "Profª Ma. Daila Silva Seabra de Moura Fonseca", lattes: "http://lattes.cnpq.br/3852649343436952" }],
         local:       "Sala 108",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5468/"
@@ -553,7 +561,7 @@ const PROGRAMACAO = [
       {
         horario:     "13h30 – 16h30",
         titulo:      "Reaproveitamento de Papel",
-        proponentes: ["Aline Campos Figueiredo"],
+        proponentes: [{ nome: "Profª Dra. Aline Campos Figueiredo", lattes: "http://lattes.cnpq.br/0015935907128248" }],
         local:       "Laboratório de Biologia · Sala T05",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5466/"
@@ -561,7 +569,7 @@ const PROGRAMACAO = [
       {
         horario:     "13h30 – 16h30",
         titulo:      "Customização de Ecobags Feitas de Resíduos Têxteis",
-        proponentes: ["Aline Campos Figueiredo"],
+        proponentes: [{ nome: "Profª Dra. Aline Campos Figueiredo", lattes: "http://lattes.cnpq.br/0015935907128248" }],
         local:       "Sala 107",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5467/"
@@ -569,7 +577,7 @@ const PROGRAMACAO = [
       {
         horario:     "13h30 – 16h30",
         titulo:      "Vasos Autoirrigáveis de Garrafa PET",
-        proponentes: ["Aline Campos Figueiredo"],
+        proponentes: [{ nome: "Profª Dra. Aline Campos Figueiredo", lattes: "http://lattes.cnpq.br/0015935907128248" }],
         local:       "Sala 106",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5465/"
@@ -577,7 +585,7 @@ const PROGRAMACAO = [
       {
         horario:     "13h30 – 16h30",
         titulo:      "Projetec",
-        proponentes: ["Renato Miranda Filho"],
+        proponentes: [{ nome: "Prof. Dr. Renato Miranda Filho", lattes: "http://lattes.cnpq.br/7395627227789576" }],
         local:       "Auditório",
         tipo:        "Apresentação de Trabalho",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5474/"
@@ -585,7 +593,7 @@ const PROGRAMACAO = [
       {
         horario:     "13h30 – 16h30",
         titulo:      "Como Acolher Uma Vítima ou Testemunha de Violência? Formação Inicial Sobre Escuta Ativa e Acolhimento Humanizado",
-        proponentes: ["Ludmila Nogueira Murta"],
+        proponentes: [{ nome: "Profª Dra. Ludmila Nogueira Murta", lattes: "http://lattes.cnpq.br/1227046805047705" }],
         local:       "Sala 110",
         tipo:        "Minicurso",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5470/"
@@ -593,7 +601,7 @@ const PROGRAMACAO = [
       {
         horario:     "13h30 – 16h30",
         titulo:      "Feira de Empreendedores do IFMG",
-        proponentes: ["Bárbara Regina Pinto e Oliveira"],
+        proponentes: [{ nome: "Profª Dra. Bárbara Regina Pinto e Oliveira", lattes: "http://lattes.cnpq.br/8477722907043174" }],
         local:       "Corredores e Áreas de Convivência do 2º Andar",
         tipo:        "Feira"
       },
@@ -630,7 +638,7 @@ const PROGRAMACAO = [
       {
         horario:     "19h – 21h",
         titulo:      "A Participação de Mulheres Negras na Gestão de Políticas Públicas",
-        proponentes: ["Márcia Basília de Araújo"],
+        proponentes: [{ nome: "Profª Dra. Márcia Basília de Araújo", lattes: "http://lattes.cnpq.br/8568301914199725" }],
         local:       "Sala 110",
         tipo:        "Mesa Redonda",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5481/"
@@ -645,7 +653,7 @@ const PROGRAMACAO = [
       {
         horario:     "19h – 22h",
         titulo:      "Oficina Planejamento - E Quando Tudo é Urgente?",
-        proponentes: ["Ana Cristina Magalhaes Costa"],
+        proponentes: [{ nome: "Profª Dra. Ana Cristina Magalhaes Costa", lattes: "http://lattes.cnpq.br/8195261898909780" }],
         local:       "Laboratório de Projetos · Sala 201",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5479/"
@@ -653,7 +661,7 @@ const PROGRAMACAO = [
       {
         horario:     "19h – 22h",
         titulo:      "Intensivão: Excel",
-        proponentes: ["Bárbara Regina Pinto e Oliveira"],
+        proponentes: [{ nome: "Profª Dra. Bárbara Regina Pinto e Oliveira", lattes: "http://lattes.cnpq.br/8477722907043174" }],
         local:       "Laboratório de Informática · Sala 102",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5480/"
@@ -661,7 +669,7 @@ const PROGRAMACAO = [
       {
         horario:     "19h – 22h",
         titulo:      "Ecoinovação",
-        proponentes: ["Daiane Vitória da Silva"],
+        proponentes: [{ nome: "Profª Dra. Daiane Vitória da Silva", lattes: "http://lattes.cnpq.br/3534501432395656" }],
         local:       "Sala 108",
         tipo:        "Minicurso",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5491/"
@@ -669,7 +677,7 @@ const PROGRAMACAO = [
       {
         horario:     "19h – 22h",
         titulo:      "Como Acolher Uma Vítima ou Testemunha de Violência? Formação Inicial Sobre Escuta Ativa e Acolhimento Humanizado",
-        proponentes: ["Ludmila Nogueira Murta"],
+        proponentes: [{ nome: "Profª Dra. Ludmila Nogueira Murta", lattes: "http://lattes.cnpq.br/1227046805047705" }],
         local:       "Sala 109",
         tipo:        "Minicurso",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5476/"
@@ -677,7 +685,7 @@ const PROGRAMACAO = [
       {
         horario:     "19h – 22h",
         titulo:      "Feira de Empreendedores do IFMG",
-        proponentes: ["Bárbara Regina Pinto e Oliveira"],
+        proponentes: [{ nome: "Profª Dra. Bárbara Regina Pinto e Oliveira", lattes: "http://lattes.cnpq.br/8477722907043174" }],
         local:       "Corredores e Áreas de Convivência do 2º Andar",
         tipo:        "Feira"
       }
@@ -809,7 +817,7 @@ const PROGRAMACAO = [
   }
 
   function linkSeguro(url){
-    try { const u = new URL(url); return u.protocol === "https:" ? u.href : null; }
+    try { const u = new URL(url); return (u.protocol === "https:" || (u.protocol === "http:" && u.hostname === "lattes.cnpq.br")) ? u.href : null; }
     catch(e){ return null; }
   }
 
@@ -893,7 +901,21 @@ const PROGRAMACAO = [
         const who = el("p", "who");
         const papel = i.papel || "Proponente";
         who.append(el("b", null, (nomes.length > 1 ? papel + "s" : papel) + ": "));
-        who.append(document.createTextNode(nomes.join(" e ")));
+        nomes.forEach((p, idx) => {
+          if (idx > 0) who.append(document.createTextNode(idx === nomes.length - 1 ? " e " : ", "));
+          const nome = typeof p === "string" ? p : p.nome;
+          const href = (typeof p === "object" && p.lattes) ? linkSeguro(p.lattes) : null;
+          if (href){
+            const a = el("a", "plink");
+            a.href = href; a.target = "_blank"; a.rel = "noopener noreferrer";
+            a.title = "Currículo Lattes";
+            a.append(document.createTextNode(nome + "\u00A0"), el("span", null, "↗"));
+            a.lastChild.setAttribute("aria-hidden", "true");
+            who.append(a);
+          } else {
+            who.append(document.createTextNode(nome));
+          }
+        });
         body.append(who);
       }
       card.append(body);
