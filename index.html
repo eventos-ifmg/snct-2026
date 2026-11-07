@@ -245,6 +245,32 @@
   .empty h3{ font-family:var(--font-display); font-weight:800; font-size:clamp(26px, 5vw, 38px); margin:0 0 8px; letter-spacing:-.01em; color:var(--purple); }
   .empty p{ margin:0; max-width:44ch; color:var(--muted); }
 
+
+  /* =====================================================================
+     COMISSÃO ORGANIZADORA
+     ===================================================================== */
+  .team{ margin-top:56px; }
+  .team h2{
+    font-family:var(--font-display); font-weight:800; font-size:clamp(28px, 5vw, 40px);
+    letter-spacing:-.02em; line-height:1; margin:0 0 18px; color:var(--purple);
+  }
+  .team h2 span{ color:var(--magenta); }
+  .members{ display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; }
+  .person{
+    --tone:var(--purple);
+    position:relative; background:var(--card); border:1px solid var(--line);
+    border-radius:var(--radius-md); padding:16px 18px 16px 22px; box-shadow:var(--shadow); overflow:hidden;
+  }
+  .members .person::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:6px; background:var(--tone); }
+  .members .person:nth-child(6n+1){ --tone:var(--orange); }
+  .members .person:nth-child(6n+2){ --tone:var(--blue); }
+  .members .person:nth-child(6n+3){ --tone:var(--green); }
+  .members .person:nth-child(6n+4){ --tone:var(--magenta); }
+  .members .person:nth-child(6n+5){ --tone:var(--yellow); }
+  .members .person:nth-child(6n+6){ --tone:var(--purple); }
+  .person .nome{ font-family:var(--font-display); font-weight:700; font-size:16.5px; line-height:1.25; margin:0 0 4px; }
+  .person .role{ margin:0; font-size:14px; color:var(--muted); }
+
   /* RODAPÉ */
   .foot{
     margin-top:48px; padding-top:24px; border-top:1px solid var(--line);
@@ -269,6 +295,7 @@
     .stage .sun{ width:230px; right:auto; left:50%; transform:translateX(-50%); bottom:0; }
     .stage .micro{ right:auto; left:50%; transform:translateX(-46%); width:300px; }
     .about{ grid-template-columns:1fr; }
+    .members{ grid-template-columns:1fr; }
     .card{ grid-template-columns:1fr; padding:18px 18px 18px 26px; }
     .time{
       display:inline-block; width:fit-content; font-size:15px;
@@ -332,6 +359,25 @@
         <h3>Programação em breve</h3>
         <p>Estamos montando as atividades da Ciência Delas. Volte aqui em breve para conferir horários, locais e inscrições.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMISSÃO ORGANIZADORA ===================== -->
+  <section class="team" aria-labelledby="titulo-comissao">
+    <h2 id="titulo-comissao">Comissão <span>organizadora</span></h2>
+    <div class="members">
+      <div class="person"><p class="nome">Luciane Silva de Almeida</p><p class="role">DEPE · Presidente</p></div>
+      <div class="person"><p class="nome">Aion Angelu Ferraz Silva</p><p class="role">Pesquisa · Vice-presidente</p></div>
+      <div class="person"><p class="nome">André Luiz Passos Soares</p><p class="role">Comunicação</p></div>
+      <div class="person"><p class="nome">Erick Fonseca Boaventura</p><p class="role">Controle e Processos Industriais</p></div>
+      <div class="person"><p class="nome">Filipe Bravim Tito de Paula</p><p class="role">Formação Geral</p></div>
+      <div class="person"><p class="nome">Flávio Viana Gomide</p><p class="role">Gestão e Negócios</p></div>
+      <div class="person"><p class="nome">Jamile Lenhaus Detoni Cipriano</p><p class="role">Ensino</p></div>
+      <div class="person"><p class="nome">José Marcello Salles Giffoni</p><p class="role">Núcleo de Atendimento Educacional</p></div>
+      <div class="person"><p class="nome">Luiz Guilherme Hilel Drumond Silveira</p><p class="role">Informática e Comunicação</p></div>
+      <div class="person"><p class="nome">Mateus Batista Macieira</p><p class="role">T.I.</p></div>
+      <div class="person"><p class="nome">Matheus Ohara Santos</p><p class="role">T.I.</p></div>
+      <div class="person"><p class="nome">Raquel Aparecida Soares Reis Franco</p><p class="role">Extensão e Relações Institucionais</p></div>
     </div>
   </section>
 
