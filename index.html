@@ -178,6 +178,19 @@
   .filter[aria-pressed="true"]{ background:var(--ink); border-color:var(--ink); color:#fff; }
 
   .list{ display:grid; gap:14px; }
+  /* Divisão por turno */
+  .turno{ display:flex; align-items:center; gap:14px; margin:18px 0 2px; }
+  .turno:first-child{ margin-top:4px; }
+  .turno span{
+    font-family:var(--font-display); font-weight:800; font-size:15px; letter-spacing:.08em; text-transform:uppercase;
+    padding:7px 18px; border-radius:var(--radius-pill); background:var(--yellow); color:var(--ink);
+  }
+  .turno::after{ content:""; flex:1; height:3px; border-radius:3px; background:var(--yellow); opacity:.55; }
+  .turno[data-turno="Tarde"] span{ background:var(--orange); }
+  .turno[data-turno="Tarde"]::after{ background:var(--orange); }
+  .turno[data-turno="Noite"] span{ background:var(--purple); color:#fff; }
+  .turno[data-turno="Noite"]::after{ background:var(--purple); }
+
   .card{
     --tone:var(--purple);
     position:relative;
@@ -210,6 +223,7 @@
   .time{ font-family:var(--font-display); font-weight:700; font-size:18px; color:var(--purple); line-height:1.2; padding-top:2px; }
   .body h3{ font-family:var(--font-display); font-weight:700; font-size:clamp(18px, 2.4vw, 22px); line-height:1.2; margin:0 0 6px; }
   .who{ margin:0; color:var(--muted); font-size:15px; }
+  .who + .who{ margin-top:6px; }
   .who b{ font-weight:600; color:var(--ink); }
 
   .side{ display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
@@ -603,6 +617,62 @@ const PROGRAMACAO = [
         local:       ["Sala 302"],
         tipo:        "Apresentação de Projeto",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5471/"
+      },
+      {
+        horario:     "19h – 21h",
+        titulo:      "Possibilidades de Atuação na Engenharia de Controle e Automação",
+        detalhe:     "Da sala de aula à indústria: os caminhos da Engenharia de Controle e Automação / Inteligência Artificial em Equipamentos Médicos: Inovações e a Perspectiva da Engenharia de Controle e Automação",
+        proponentes: ["Elisabeth Soares Silva", "Vitória Rodrigues Morais"],
+        local:       "Auditório",
+        tipo:        "Mesa Redonda",
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5489/"
+      },
+      {
+        horario:     "19h – 21h",
+        titulo:      "A Participação de Mulheres Negras na Gestão de Políticas Públicas",
+        proponentes: ["Márcia Basília de Araújo"],
+        local:       "Sala 110",
+        tipo:        "Mesa Redonda",
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5481/"
+      },
+      {
+        horario:     "19h – 22h",
+        titulo:      "Oficina Planejamento - E Quando Tudo é Urgente?",
+        proponentes: ["Ana Cristina Magalhaes Costa"],
+        local:       "Laboratório de Projetos · Sala 201",
+        tipo:        "Oficina",
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5479/"
+      },
+      {
+        horario:     "19h – 22h",
+        titulo:      "Intensivão: Excel",
+        proponentes: ["Bárbara Regina Pinto e Oliveira"],
+        local:       "Laboratório de Informática · Sala 102",
+        tipo:        "Oficina",
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5480/"
+      },
+      {
+        horario:     "19h – 22h",
+        titulo:      "Ecoinovação",
+        proponentes: ["Daiane Vitória da Silva"],
+        local:       "Sala 108",
+        tipo:        "Minicurso",
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5491/"
+      },
+      {
+        horario:     "19h – 22h",
+        titulo:      "Como Acolher Uma Vítima ou Testemunha de Violência? Formação Inicial Sobre Escuta Ativa e Acolhimento Humanizado",
+        proponentes: ["Ludmila Nogueira Murta"],
+        local:       "Sala 109",
+        tipo:        "Minicurso",
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5476/"
+      },
+      {
+        horario:     "19h – 22h",
+        titulo:      "Feira de Empreendedores do IFMG",
+        proponentes: ["Bárbara Regina Pinto e Oliveira"],
+        local:       "Corredores e Áreas de Convivência do 2º Andar",
+        tipo:        "Feira"
       }
     ]
   },
@@ -783,7 +853,25 @@ const PROGRAMACAO = [
       return;
     }
 
+    const turnoDe = (h) => {
+      const m = /^(\d{1,2})/.exec(h || "");
+      if (!m) return null;
+      const hr = parseInt(m[1], 10);
+      return hr < 12 ? "Manhã" : (hr < 18 ? "Tarde" : "Noite");
+    };
+    let turnoAtual = null;
+
     itens.forEach(i => {
+      const t = turnoDe(i.horario);
+      if (t && t !== turnoAtual) {
+        turnoAtual = t;
+        const d = el("div", "turno", null);
+        d.dataset.turno = t;
+        d.setAttribute("role", "heading");
+        d.setAttribute("aria-level", "3");
+        d.append(el("span", null, t));
+        list.append(d);
+      }
       const card = el("article", "card");
       card.dataset.tone = tom(i.tipo);
       if (i.destaque) card.dataset.destaque = i.destaque;
