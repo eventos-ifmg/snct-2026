@@ -234,6 +234,22 @@
   .plink span{ font-size:.85em; }
   .plink:hover{ color:var(--magenta); text-decoration-color:var(--magenta); }
   .plink:focus-visible{ outline:3px solid var(--orange); outline-offset:2px; border-radius:4px; }
+  .sobre{ margin-top:8px; }
+  .who + .sobre{ margin-top:6px; }
+  .sobre summary{
+    cursor:pointer; list-style:none; display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+    font-size:15px; color:var(--ink);
+    padding:8px 12px; border-radius:12px; background:color-mix(in srgb, var(--purple) 7%, white);
+  }
+  .sobre summary b{ font-weight:600; }
+  .sobre summary::-webkit-details-marker{ display:none; }
+  .sobre summary::after{ content:"▾"; flex:none; color:var(--purple); transition:transform .15s ease; }
+  .sobre[open] summary::after{ transform:rotate(180deg); }
+  .sobre summary:hover{ background:color-mix(in srgb, var(--purple) 14%, white); }
+  .sobre summary:focus-visible{ outline:3px solid var(--orange); outline-offset:2px; }
+  .sobre-corpo{ margin-top:8px; padding:12px 14px; border-left:4px solid var(--orange); background:var(--paper); border-radius:0 12px 12px 0; font-size:14.5px; }
+  .sobre-corpo p{ margin:0 0 8px; }
+  .sobre-corpo .plink{ font-size:14px; }
   .side{ display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
   .tag{
     display:inline-block; font-size:12.5px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
@@ -458,8 +474,8 @@ const PROGRAMACAO = [
     itens: [
       {
         horario:     "8h – 10h",
-        titulo:      "Palestra de Abertura",
-        proponentes: ["A definir"],
+        titulo:      "Palestra de Abertura – Ciências Delas: o protagonismo feminino na produção e difusão do conhecimento",
+        proponentes: [{ nome: "Profª Dra. Gabriela Nunes Lopes", lattes: "http://lattes.cnpq.br/5814139537215790", inst: "UFMG", sobre: "Professora na área de inteligência computacional na UFMG. Doutora em Engenharia Elétrica pela Universidade de São Paulo (USP)." }, { nome: "Profª Dra. Aline Campos Figueiredo", lattes: "http://lattes.cnpq.br/0015935907128248", inst: "IFMG", sobre: "Professora do IFMG Sabará. Doutora em Política Científica e Tecnológica pela UNICAMP (2023) e Mestre em Administração pela UFMG (2012)." }, { nome: "Esp. Lais Horrana Ramos Damasceno", lattes: "http://lattes.cnpq.br/1064151761180762", sobre: "Engenheira de Sistemas (UFMG) e Técnica em Edificações (CEFET-MG). Mestranda em Engenharia Elétrica na UFMG, na linha de pesquisa Inteligência Computacional." }],
         papel:       "Palestrante",
         local:       "Quadra",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5440/"
@@ -470,7 +486,7 @@ const PROGRAMACAO = [
         proponentes: [{ nome: "Prof. Dr. Maximiliano Henrique Barbosa", lattes: "http://lattes.cnpq.br/2729038298896717" }],
         local:       "Sala 107",
         tipo:        "Minicurso",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5449/"
       },
       {
         horario:     "10h – 11h",
@@ -478,7 +494,7 @@ const PROGRAMACAO = [
         proponentes: [{ nome: "Profª Dra. Deyse de Brito Marthe", lattes: "http://lattes.cnpq.br/8856270958151865" }],
         local:       "Área Externa · Tenda Térreo",
         tipo:        "Jogo",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5450/"
       },
       {
         horario:     "10h – 12h",
@@ -494,7 +510,7 @@ const PROGRAMACAO = [
         proponentes: [{ nome: "Profª Ma. Cristianele Lima Cardoso", lattes: "http://lattes.cnpq.br/8297948805034595" }],
         local:       "Laboratório de Biologia · Sala T05",
         tipo:        "Oficina",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5452/"
       },
       {
         horario:     "10h – 12h",
@@ -502,7 +518,7 @@ const PROGRAMACAO = [
         proponentes: [{ nome: "Profª Dra. Deyse de Brito Marthe", lattes: "http://lattes.cnpq.br/8856270958151865" }],
         local:       "Área Externa · Mesas de Ardósia",
         tipo:        "Oficina",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5453/"
       },
       {
         horario:     "10h – 12h",
@@ -510,7 +526,7 @@ const PROGRAMACAO = [
         proponentes: [{ nome: "Profª Dra. Deyse de Brito Marthe", lattes: "http://lattes.cnpq.br/8856270958151865" }],
         local:       "Laboratório de Química · Sala 104",
         tipo:        "Oficina",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5454/"
       },
       {
         horario:     "10h – 12h",
@@ -518,7 +534,7 @@ const PROGRAMACAO = [
         proponentes: [{ nome: "Profª Dra. Deyse de Brito Marthe", lattes: "http://lattes.cnpq.br/8856270958151865" }],
         local:       "Auditório · Sala 209",
         tipo:        "Exibição de filme",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5455/"
       },
       {
         horario:     "10h – 12h",
@@ -526,7 +542,7 @@ const PROGRAMACAO = [
         proponentes: [{ nome: "Dra. Jorddana Rocha de Almeida", lattes: "http://lattes.cnpq.br/0277571387373051" }, { nome: "Me. Eder Aguiar Mendes de Oliveira", lattes: "http://lattes.cnpq.br/3455206596118120" }],
         local:       "Laboratório de Projetos · Sala 201",
         tipo:        "Oficina",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5447/"
       },
       {
         horario:     "10h – 12h",
@@ -534,7 +550,7 @@ const PROGRAMACAO = [
         proponentes: [{ nome: "Profª Dra. Luciane Silva de Almeida", lattes: "http://lattes.cnpq.br/2003686159963628" }],
         local:       "Sala 110",
         tipo:        "Minicurso",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5456/"
       },
       {
         horario:     "12h – 13h30",
@@ -607,7 +623,7 @@ const PROGRAMACAO = [
       {
         horario:     "19h – 21h",
         titulo:      "Palestra de Abertura – Mulheres nas ciências: possibilidades e desafios",
-        proponentes: [{ nome: "Profª Dra. Hersília de Andrade e Santos", lattes: "http://lattes.cnpq.br/3618369732101367" }, "Maria Eduarda Celestino"],
+        proponentes: [{ nome: "Profª Dra. Hersília de Andrade e Santos", lattes: "http://lattes.cnpq.br/3618369732101367", sobre: "Professora do CEFET-MG. Engenheira Civil com doutorado em Saneamento, Meio Ambiente e Recursos Hídricos pela UFMG e pós-doutorado na Universidade de Iowa (EUA). Coordena projetos que buscam promover a equidade de gênero e a participação de meninas nas engenharias." }, { nome: "Maria Eduarda Celestino", sobre: "Analista de Soluções Pleno na AtkinsRealis. Engenheira de Controle e Automação formada pelo IFMG Campus Sabará, com MBA em Gerenciamento de Projetos pela USP." }],
         papel:       "Palestrante",
         local:       "Quadra",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5457/"
@@ -624,7 +640,7 @@ const PROGRAMACAO = [
         proponentes: ["Cleide Janine Jardim"],
         local:       "Auditório · Sala 209",
         tipo:        "Palestra",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5487/"
       },
       {
         horario:     "8h – 9h",
@@ -632,7 +648,14 @@ const PROGRAMACAO = [
         proponentes: [{ nome: "Profª Ma. Daila Silva Seabra de Moura Fonseca", lattes: "http://lattes.cnpq.br/3852649343436952" }],
         local:       "Área Externa",
         tipo:        "Oficina",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5498/"
+      },
+      {
+        horario:     "8h – 9h",
+        titulo:      "Soberania Digital e Educação Pública - Qual Nosso Papel Nessa História?",
+        local:       "Sala 108",
+        tipo:        "Roda de Conversa",
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5488/"
       },
       {
         horario:     "8h – 10h",
@@ -640,7 +663,7 @@ const PROGRAMACAO = [
         proponentes: [{ nome: "Profª Ma. Daila Silva Seabra de Moura Fonseca", lattes: "http://lattes.cnpq.br/3852649343436952" }],
         local:       "Sala 109",
         tipo:        "Minicurso",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5499/"
       },
       {
         horario:     "8h – 10h",
@@ -648,15 +671,15 @@ const PROGRAMACAO = [
         proponentes: ["Lucia Madeira"],
         local:       "Laboratório de Desenho · Sala T12",
         tipo:        "Oficina",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5500/"
       },
       {
         horario:     "8h – 10h",
         titulo:      "Fermenta Aí! da Ciência Ao Iogurte Natural",
-        proponentes: ["Profª Ma. Jamile Lenhaus Detoni Cipriano"],
+        proponentes: ["Ma. Jamile Lenhaus Detoni Cipriano"],
         local:       "Laboratório de Biologia · Sala T05",
         tipo:        "Oficina",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5501/"
       },
       {
         horario:     "9h – 12h",
@@ -664,7 +687,7 @@ const PROGRAMACAO = [
         proponentes: [{ nome: "Profª Dra. Aline Campos Figueiredo", lattes: "http://lattes.cnpq.br/0015935907128248" }],
         local:       "Sala 108",
         tipo:        "Oficina",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5502/"
       },
       {
         horario:     "9h – 12h",
@@ -672,7 +695,7 @@ const PROGRAMACAO = [
         proponentes: [{ nome: "Profª Dra. Aline Campos Figueiredo", lattes: "http://lattes.cnpq.br/0015935907128248" }],
         local:       "Laboratório de Projetos · Sala 201",
         tipo:        "Oficina",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5503/"
       },
       {
         horario:     "9h – 12h",
@@ -680,7 +703,7 @@ const PROGRAMACAO = [
         proponentes: [{ nome: "Profª Dra. Aline Campos Figueiredo", lattes: "http://lattes.cnpq.br/0015935907128248" }],
         local:       "Sala 107",
         tipo:        "Oficina",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5504/"
       },
       {
         horario:     "9h – 12h",
@@ -688,15 +711,15 @@ const PROGRAMACAO = [
         proponentes: [{ nome: "Profª Dra. Deyse de Brito Marthe", lattes: "http://lattes.cnpq.br/8856270958151865" }],
         local:       "Sala 106",
         tipo:        "Jogo interativo",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5505/"
       },
       {
         horario:     "9h – 12h",
         titulo:      "Cinedebate: Estrelas Além do Tempo",
-        proponentes: [{ nome: "Dra. Jorddana Rocha de Almeida", lattes: "http://lattes.cnpq.br/0277571387373051" }, { nome: "Dra. Márcia Basília de Araújo", lattes: "http://lattes.cnpq.br/8568301914199725" }],
+        proponentes: [{ nome: "Dra. Jorddana Rocha de Almeida", lattes: "http://lattes.cnpq.br/0277571387373051" }, { nome: "Profª Dra. Márcia Basília de Araújo", lattes: "http://lattes.cnpq.br/8568301914199725" }],
         local:       "Auditório · Sala 209",
         tipo:        "Exibição de filme",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5506/"
       },
       {
         horario:     "10h – 12h",
@@ -704,7 +727,7 @@ const PROGRAMACAO = [
         proponentes: [{ nome: "Profª Ma. Daila Silva Seabra de Moura Fonseca", lattes: "http://lattes.cnpq.br/3852649343436952" }],
         local:       "Sala 109",
         tipo:        "Oficina",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5507/"
       },
       {
         horario:     "10h – 12h",
@@ -712,7 +735,7 @@ const PROGRAMACAO = [
         proponentes: [{ nome: "Prof. Dr. Maximiliano Henrique Barbosa", lattes: "http://lattes.cnpq.br/2729038298896717" }],
         local:       "Laboratório de Desenho · Sala T12",
         tipo:        "Oficina",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5508/"
       },
       {
         horario:     "10h – 12h",
@@ -720,7 +743,7 @@ const PROGRAMACAO = [
         proponentes: [{ nome: "Profª Dra. Márcia Basília de Araújo", lattes: "http://lattes.cnpq.br/8568301914199725" }],
         local:       "Sala 110",
         tipo:        "Mesa Redonda",
-        emBreve:     true
+        inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5510/"
       },
       {
         horario:     "13h30 – 15h30",
@@ -810,7 +833,7 @@ const PROGRAMACAO = [
         horario:     "19h – 21h",
         titulo:      "Possibilidades de Atuação na Engenharia de Controle e Automação",
         detalhe:     "Da sala de aula à indústria: os caminhos da Engenharia de Controle e Automação / Inteligência Artificial em Equipamentos Médicos: Inovações e a Perspectiva da Engenharia de Controle e Automação",
-        proponentes: ["Elisabeth Soares Silva", "Vitória Rodrigues Morais"],
+        proponentes: [{ nome: "Elisabeth Soares Silva", sobre: "Analista Master de Projetos no setor de mineração, em projetos industriais. Engenheira de Controle e Automação pelo IFMG Campus Sabará e pós-graduanda em Instrumentação Industrial pela PUC Minas." }, { nome: "Vitória Rodrigues Morais", sobre: "Engenheira de IA na VMI Médica. Engenheira de Controle e Automação formada pelo IFMG Campus Sabará." }],
         local:       "Auditório",
         tipo:        "Mesa Redonda",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5489/"
@@ -1077,27 +1100,59 @@ const PROGRAMACAO = [
       body.append(el("h3", null, i.titulo));
       if (i.detalhe) body.append(el("p", "who", i.detalhe));
       const nomes = Array.isArray(i.proponentes) ? i.proponentes : (i.proponentes ? [i.proponentes] : []);
-      if (nomes.length){
+      const temSobre = (p) => typeof p === "object" && p.sobre;
+      const semSobre = nomes.filter(p => !temSobre(p));
+      const comSobre = nomes.filter(temSobre);
+      const papel = i.papel || "Proponente";
+
+      const linkLattes = (p, texto) => {
+        const href = (typeof p === "object" && p.lattes) ? linkSeguro(p.lattes) : null;
+        if (!href) return null;
+        const a = el("a", "plink");
+        a.href = href; a.target = "_blank"; a.rel = "noopener noreferrer";
+        a.title = "Currículo Lattes";
+        a.append(document.createTextNode(texto + "\u00A0"), el("span", null, "↗"));
+        a.lastChild.setAttribute("aria-hidden", "true");
+        return a;
+      };
+      const inst = (p) => (typeof p === "object" && p.inst) ? " (" + p.inst + ")" : "";
+
+      // Proponentes sem resumo: linha simples, com link do Lattes no nome
+      if (semSobre.length){
         const who = el("p", "who");
-        const papel = i.papel || "Proponente";
-        who.append(el("b", null, (nomes.length > 1 ? papel + "s" : papel) + ": "));
-        nomes.forEach((p, idx) => {
-          if (idx > 0) who.append(document.createTextNode(idx === nomes.length - 1 ? " e " : ", "));
+        who.append(el("b", null, (semSobre.length > 1 ? papel + "s" : papel) + ": "));
+        semSobre.forEach((p, idx) => {
+          if (idx > 0) who.append(document.createTextNode(idx === semSobre.length - 1 ? " e " : ", "));
           const nome = typeof p === "string" ? p : p.nome;
-          const href = (typeof p === "object" && p.lattes) ? linkSeguro(p.lattes) : null;
-          if (href){
-            const a = el("a", "plink");
-            a.href = href; a.target = "_blank"; a.rel = "noopener noreferrer";
-            a.title = "Currículo Lattes";
-            a.append(document.createTextNode(nome + "\u00A0"), el("span", null, "↗"));
-            a.lastChild.setAttribute("aria-hidden", "true");
-            who.append(a);
-          } else {
-            who.append(document.createTextNode(nome));
-          }
+          const a = linkLattes(p, nome);
+          who.append(a || document.createTextNode(nome));
+          if (inst(p)) who.append(document.createTextNode(inst(p)));
         });
         body.append(who);
       }
+
+      // Proponentes com resumo: uma linha por pessoa, que abre o resumo (sem repetir o nome)
+      if (comSobre.length > 1 && !semSobre.length){
+        const cab = el("p", "who");
+        cab.append(el("b", null, papel + "s:"));
+        body.append(cab);
+      }
+      const rotuloNaLinha = !(comSobre.length > 1 && !semSobre.length);
+      comSobre.forEach(p => {
+        const det = el("details", "sobre");
+        const sum = el("summary");
+        const txt = el("span");
+        if (rotuloNaLinha) txt.append(el("b", null, papel + ": "));
+        txt.append(document.createTextNode(p.nome + inst(p)));
+        sum.append(txt);
+        det.append(sum);
+        const corpo = el("div", "sobre-corpo");
+        corpo.append(el("p", null, p.sobre));
+        const l = linkLattes(p, "Ver currículo Lattes");
+        if (l) corpo.append(l);
+        det.append(corpo);
+        body.append(det);
+      });
       card.append(body);
 
       const side = el("div", "side");
