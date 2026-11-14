@@ -247,6 +247,9 @@
   .sobre[open] summary::after{ transform:rotate(180deg); }
   .sobre summary:hover{ background:color-mix(in srgb, var(--purple) 14%, white); }
   .sobre summary:focus-visible{ outline:3px solid var(--orange); outline-offset:2px; }
+  .nome-sobre{ color:var(--purple); font-weight:500; text-decoration:underline; text-decoration-color:color-mix(in srgb, var(--purple) 40%, white); text-decoration-thickness:2px; text-underline-offset:3px; }
+  .who-box{ margin:4px 0 0; padding:8px 12px; border-radius:12px; background:color-mix(in srgb, var(--purple) 7%, white); font-size:15px; color:var(--ink); }
+  .sobre-sem{ margin-top:8px; padding:8px 12px; border-radius:12px; background:color-mix(in srgb, var(--purple) 7%, white); font-size:15px; color:var(--ink); }
   .sobre-corpo{ margin-top:8px; padding:12px 14px; border-left:4px solid var(--orange); background:var(--paper); border-radius:0 12px 12px 0; font-size:14.5px; }
   .sobre-corpo p{ margin:0 0 8px; }
   .sobre-corpo .plink{ font-size:14px; }
@@ -455,7 +458,7 @@ const PROGRAMACAO = [
         horario:     "8h – 10h",
         titulo:      "Palestra de Abertura – Ciências Delas: o protagonismo feminino na produção e difusão do conhecimento",
         proponentes: [{ nome: "Profª Dra. Gabriela Nunes Lopes", lattes: "http://lattes.cnpq.br/5814139537215790", sobre: "Professora na área de inteligência computacional na UFMG. Doutora em Engenharia Elétrica pela Universidade de São Paulo (USP)." }, { nome: "Esp. Lais Horrana Ramos Damasceno", lattes: "http://lattes.cnpq.br/1064151761180762", sobre: "Engenheira de Sistemas (UFMG) e Técnica em Edificações (CEFET-MG). Mestranda em Engenharia Elétrica na UFMG, na linha de pesquisa Inteligência Computacional." }],
-        papel:       "Palestrante",
+        papel:       "Ministrante",
         local:       "Quadra",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5440/"
       },
@@ -464,6 +467,7 @@ const PROGRAMACAO = [
         titulo:      "Psicologia da Música: Ouvir é Sentir",
         vagas:       30,
         proponentes: [{ nome: "Prof. Dr. Maximiliano Henrique Barbosa", lattes: "http://lattes.cnpq.br/2729038298896717" }],
+        estudantes:  ["Sofia Maria Miranda Cordeiro Afonso", "Luana Victoria Pires Tarabal", "Cauã Reinaldo Honorato Proença", "Ester Vitória Aguilar de Souza", "Álvaro Eduardo Ferreira Gomes"],
         local:       "Sala 107",
         tipo:        "Minicurso",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5449/"
@@ -473,9 +477,17 @@ const PROGRAMACAO = [
         titulo:      "Consciência ou Consequência: para conscientizar, também podemos brincar",
         vagas:       20,
         proponentes: [{ nome: "Profª Dra. Deyse de Brito Marthe", lattes: "http://lattes.cnpq.br/8856270958151865" }],
+        estudantes:  ["Ana Clara de Sales Reis", "Anna Júllia dos Santos Carvalho", "Bianca Mitiko Alves Osava", "Maria Tereza Ambrosio de Souza", "Marina Rafaella Martins de Oliveira", "Sofia Pimenta de Souza"],
         local:       "Área Externa · Tenda Térreo",
         tipo:        "Jogo",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5450/"
+      },
+      {
+        horario:     "9h – 12h",
+        titulo:      "Feira de Empreendedores do IFMG",
+        proponentes: [{ nome: "Profª Dra. Bárbara Regina Pinto e Oliveira", lattes: "http://lattes.cnpq.br/8477722907043174" }],
+        local:       "Corredores e Áreas de Convivência do 2º Andar",
+        tipo:        "Feira"
       },
       {
         horario:     "10h – 12h",
@@ -492,6 +504,7 @@ const PROGRAMACAO = [
         titulo:      "Vasos Autoirrigáveis",
         vagas:       15,
         proponentes: [{ nome: "Profª Ma. Cristianele Lima Cardoso", lattes: "http://lattes.cnpq.br/8297948805034595" }],
+        estudantes:  ["Thayane Radarany Pereira Evangelista", "Caio Santos Faula de Morais", "Gabriel Costa Pereira", "Benjamim Miguel Gomes Leite", "Geovana da Silva Alcântara", "Miguel Campos Machado", "Mateus Vargas Duarte"],
         local:       "Laboratório de Biologia · Sala T05",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5452/"
@@ -501,6 +514,7 @@ const PROGRAMACAO = [
         titulo:      "Jardim Reutilizável",
         vagas:       10,
         proponentes: [{ nome: "Profª Dra. Deyse de Brito Marthe", lattes: "http://lattes.cnpq.br/8856270958151865" }],
+        estudantes:  ["Júlia Satter de Oliveira Xavier", "Guilherme Filippe Teixeira do Carmo", "Sophia Bianca Sidney Tomich Mota", "Sophia Teixeira Portugal", "Victoria Martins Couto"],
         local:       "Área Externa · Mesas de Ardósia",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5453/"
@@ -528,7 +542,7 @@ const PROGRAMACAO = [
         titulo:      "Juventude e Relações de Gênero na Escola",
         vagas:       25,
         proponentes: [{ nome: "Dra. Jorddana Rocha de Almeida", lattes: "http://lattes.cnpq.br/0277571387373051" }, { nome: "Me. Eder Aguiar Mendes de Oliveira", lattes: "http://lattes.cnpq.br/3455206596118120" }],
-        papel:       "Ministrante",
+        estudantes:  ["Isabela Cristina Puff Dias", "Othavio Nepomuceno Camillo", "Beatriz Vitória Norberto Benevides"],
         local:       "Laboratório de Projetos · Sala 201",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5447/"
@@ -538,6 +552,7 @@ const PROGRAMACAO = [
         titulo:      "O Movimento Hip Hop como Ferramenta Antirracista",
         vagas:       30,
         proponentes: [{ nome: "Profª Dra. Luciane Silva de Almeida", lattes: "http://lattes.cnpq.br/2003686159963628" }],
+        papel:       "Ministrante",
         local:       "Sala 110",
         tipo:        "Minicurso",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5456/"
@@ -569,6 +584,7 @@ const PROGRAMACAO = [
         titulo:      "Biojoias",
         vagas:       10,
         proponentes: [{ nome: "Profª Ma. Cristianele Lima Cardoso", lattes: "http://lattes.cnpq.br/8297948805034595" }],
+        estudantes:  ["Álvaro Eduardo Ferreira Gomes", "Eduarda Vieira Martins da Silva Pereira", "Joyce Vitória dos Santos", "Laura Costa Conegundes", "Maria Eduarda Moreira da Silva", "Mariele Carolina de Sousa Carlech", "Pedro Sarmento de Carvalho Colucci"],
         local:       "Sala 104",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5459/"
@@ -578,6 +594,7 @@ const PROGRAMACAO = [
         titulo:      "Produção de Ecobags com Tintas Botânicas",
         vagas:       10,
         proponentes: [{ nome: "Profª Ma. Cristianele Lima Cardoso", lattes: "http://lattes.cnpq.br/8297948805034595" }],
+        estudantes:  ["Cauã Viana de Souza Duarte", "Luiz Henrique Moreira Nonato"],
         local:       "Laboratório de Biologia · Sala T05",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5460/"
@@ -587,6 +604,7 @@ const PROGRAMACAO = [
         titulo:      "Operação Lixo Zero: Escape Room – Missão Planeta",
         vagas:       10,
         proponentes: [{ nome: "Profª Ma. Daila Silva Seabra de Moura Fonseca", lattes: "http://lattes.cnpq.br/3852649343436952" }],
+        estudantes:  ["Ana Carolina Ferreira Queiros", "Camila Martins Araújo", "Fernando Ferreira da Silva", "Gabriel André Silva Urias Chagas", "Lucas Gabriel Barbosa de Aquino", "Maria Luisa Silva Reis"],
         local:       "Sala 110",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5477/"
@@ -596,6 +614,7 @@ const PROGRAMACAO = [
         titulo:      "Ecobottons",
         vagas:       25,
         proponentes: [{ nome: "Profª Ma. Daila Silva Seabra de Moura Fonseca", lattes: "http://lattes.cnpq.br/3852649343436952" }],
+        estudantes:  ["Maria Eduarda Othechar Jacinto", "Miguel Felipe Santos Motta", "Mileny Carolina Souza de Deus", "Natã Lucas Miranda Nascimento", "Victor Philipe Duarte Sobral", "Vitor Galdino Scalzo"],
         local:       "Sala 107",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5461/"
@@ -613,7 +632,8 @@ const PROGRAMACAO = [
         horario:     "13h30 – 16h30",
         titulo:      "Campeonato de Programação",
         vagas:       40,
-        proponentes: [{ nome: "Prof. Me. Daniel Conrado", lattes: "http://lattes.cnpq.br/4469934696623908" }],
+        proponentes: ["Isabella Carvalho de Melo"],
+        papel:       "Ministrante",
         local:       "Laboratório 202",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5463/"
@@ -641,10 +661,25 @@ const PROGRAMACAO = [
       {
         horario:     "19h – 21h",
         titulo:      "Palestra de Abertura – Mulheres nas ciências: possibilidades e desafios",
-        proponentes: [{ nome: "Profª Dra. Hersília de Andrade e Santos", lattes: "http://lattes.cnpq.br/3618369732101367", sobre: "Professora do CEFET-MG. Engenheira Civil com doutorado em Saneamento, Meio Ambiente e Recursos Hídricos pela UFMG e pós-doutorado na Universidade de Iowa (EUA). Coordena projetos que buscam promover a equidade de gênero e a participação de meninas nas engenharias." }, { nome: "Maria Eduarda Celestino", sobre: "Analista de Soluções Pleno na AtkinsRealis. Engenheira de Controle e Automação formada pelo IFMG Campus Sabará, com MBA em Gerenciamento de Projetos pela USP." }, { nome: "Profª Dra. Mariella Maia Quadros", lattes: "http://lattes.cnpq.br/0534924946233587", sobre: "Possui graduação em Engenharia Mecatrônica pelo Centro Federal de Educação Tecnológica de Minas Gerais Campus Divinópolis (2016), mestrado em Engenharia Elétrica pelo Programa de Pós-Graduação em Engenharia Elétrica no Centro Federal de Educação Tecnológica de Minas Gerais (2018), doutorado pelo Programa de Pós-Graduação em Engenharia Elétrica na Universidade Federal de Minas Gerais (2021) e é professora EBTT no Instituto Federal de Minas Gerais (IFMG) na Área de Controle de Processos Industriais. Atua como Vice-Coordenadora do Comitê Institucional Mulheres na Automática da Sociedade Brasileira de Automática (SBA) (2023-2025)." }],
-        papel:       "Palestrante",
+        proponentes: [{ nome: "Profª Dra. Hersília de Andrade e Santos", lattes: "http://lattes.cnpq.br/3618369732101367", sobre: "Professora do CEFET-MG. Engenheira Civil com doutorado em Saneamento, Meio Ambiente e Recursos Hídricos pela UFMG e pós-doutorado na Universidade de Iowa (EUA). Coordena projetos que buscam promover a equidade de gênero e a participação de meninas nas engenharias." }, { nome: "Esp. Maria Eduarda Celestino", lattes: "http://lattes.cnpq.br/1398595175975288", sobre: "Analista de Soluções Pleno na AtkinsRealis. Engenheira de Controle e Automação formada pelo IFMG Campus Sabará, com MBA em Gerenciamento de Projetos pela USP." }, { nome: "Profª Dra. Mariella Maia Quadros", lattes: "http://lattes.cnpq.br/0534924946233587", sobre: "Possui graduação em Engenharia Mecatrônica pelo Centro Federal de Educação Tecnológica de Minas Gerais Campus Divinópolis (2016), mestrado em Engenharia Elétrica pelo Programa de Pós-Graduação em Engenharia Elétrica no Centro Federal de Educação Tecnológica de Minas Gerais (2018), doutorado pelo Programa de Pós-Graduação em Engenharia Elétrica na Universidade Federal de Minas Gerais (2021) e é professora EBTT no Instituto Federal de Minas Gerais (IFMG) na Área de Controle de Processos Industriais. Atua como Vice-Coordenadora do Comitê Institucional Mulheres na Automática da Sociedade Brasileira de Automática (SBA) (2023-2025)." }],
+        papel:       "Ministrante",
         local:       "Quadra",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5457/"
+      },
+      {
+        horario:     "19h",
+        titulo:      "Atividade Cultural",
+        proponentes: ["Prof. Dr. Leandro Ramos", "Profª Ma. Marina Matiello"],
+        papel:       "Ministrante",
+        local:       "Quadra",
+        tipo:        "Atividade Cultural"
+      },
+      {
+        horario:     "19h – 22h",
+        titulo:      "Feira de Empreendedores do IFMG",
+        proponentes: [{ nome: "Profª Dra. Bárbara Regina Pinto e Oliveira", lattes: "http://lattes.cnpq.br/8477722907043174" }],
+        local:       "Corredores e Áreas de Convivência do 2º Andar",
+        tipo:        "Feira"
       }
     ]
   },
@@ -657,7 +692,7 @@ const PROGRAMACAO = [
         titulo:      "A Maior Tecnologia de Todos Os Tempos: O Livro",
         vagas:       60,
         proponentes: [{ nome: "Djalma Santiago", sobre: "Escritor, editor e livreiro. Idealizador da “Livraria Sabarense – A Menor Livraria do Mundo” e da Kaquende Microeditora. Agente cultural atuante em Sabará (MG), conhecido por sua produção literária independente, zines, contos e participação em conselhos e eventos culturais do município. Obras e publicações: “Borba Gato era um Rato”, “Esopo em Sabará”, “A Sabará de Drummond”, “O último homem” e o romance “Nietzsche na Montanha”." }],
-        papel:       "Palestrante",
+        papel:       "Ministrante",
         local:       "Auditório · Sala 209",
         tipo:        "Palestra",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5487/"
@@ -674,8 +709,8 @@ const PROGRAMACAO = [
         horario:     "8h – 9h",
         titulo:      "Soberania Digital e Educação Pública - Qual Nosso Papel Nessa História?",
         vagas:       20,
-        proponentes: [{ nome: "Profª Ma. Janaina do Rosario Diniz", lattes: "http://lattes.cnpq.br/0275802450543524", sobre: "Professora do Departamento de Ciências Humanas e Fundamentos da Educação da Universidade do Estado de Minas Gerais. Doutoranda em Educação pela Universidade Federal de Minas Gerais. Mestra em Educação pela Pontifícia Universidade Católica de Minas Gerais, pós-graduada em Administração de Sistemas de Informação pela Universidade Federal de Lavras e graduada em Biblioteconomia pela Universidade Federal de Minas Gerais. Desenvolve pesquisas sobre tecnologias digitais e formação docente, fontes de informação na internet, desinformação, plataformização da educação e software livre na educação. Integrante dos grupos de pesquisa Observatório Educação Vigiada e Tecnologia Educacional, Software Livre e Vigilância." }, { nome: "Prof. Me. Frederico Guimarães", lattes: "http://lattes.cnpq.br/2369348289497598", sobre: "Possui graduação em Ciências Biológicas pela Universidade Federal de Minas Gerais (1994) e mestrado em Ciências da Saúde, com ênfase em Bioinformática, pelo Centro de Pesquisas René Rachou - Fiocruz Minas (2017). Trabalhou como biólogo na realização de exames de DNA na empresa Biocod Biotecnologia. Atualmente é professor da Secretaria Municipal de Educação de Belo Horizonte, onde já atuou no desenvolvimento da distribuição GNU/Linux utilizada nas escolas dessa rede e na prospecção e suporte a softwares livres. Também é cooperado da Cooperativa EITA, onde atua principalmente na manutenção dos ambientes RIOS (uma personalização do Nextcloud) e Varal (uma instância do Moodle). Trabalha com softwares livres desde 2001, com experiência no desenvolvimento de softwares, tradução de interfaces e documentação para o português do Brasil." }],
-        papel:       "Palestrante",
+        proponentes: [{ nome: "Profª Ma. Janaina do Rosario Diniz", lattes: "http://lattes.cnpq.br/0275802450543524", sobre: "Professora do Departamento de Ciências Humanas e Fundamentos da Educação da Universidade do Estado de Minas Gerais. Doutoranda em Educação pela Universidade Federal de Minas Gerais. Mestra em Educação pela Pontifícia Universidade Católica de Minas Gerais, pós-graduada em Administração de Sistemas de Informação pela Universidade Federal de Lavras e graduada em Biblioteconomia pela Universidade Federal de Minas Gerais. Desenvolve pesquisas sobre tecnologias digitais e formação docente, fontes de informação na internet, desinformação, plataformização da educação e software livre na educação. Integrante dos grupos de pesquisa Observatório Educação Vigiada e Tecnologia Educacional, Software Livre e Vigilância." }, { nome: "Prof. Me. Frederico Guimarães", lattes: "http://lattes.cnpq.br/2369348289497598", sobre: "Possui graduação em Ciências Biológicas pela Universidade Federal de Minas Gerais (1994) e mestrado em Ciências da Saúde, com ênfase em Bioinformática, pelo Centro de Pesquisas René Rachou - Fiocruz Minas (2017). Trabalhou como biólogo na realização de exames de DNA na empresa Biocod Biotecnologia. Atualmente é professor da Secretaria Municipal de Educação de Belo Horizonte, onde já atuou no desenvolvimento da distribuição GNU/Linux utilizada nas escolas dessa rede e na prospecção e suporte a softwares livres. Também é cooperado da Cooperativa EITA, onde atua principalmente na manutenção dos ambientes RIOS (uma personalização do Nextcloud) e Varal (uma instância do Moodle). Trabalha com softwares livres desde 2001, com experiência no desenvolvimento de softwares, tradução de interfaces e documentação para o português do Brasil." }, { nome: "Prof. Dr. Aluizio Barbosa de Oliveira Neto", lattes: "http://lattes.cnpq.br/3881927537576458" }],
+        papel:       "Ministrante",
         local:       "Sala 108",
         tipo:        "Roda de Conversa",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5488/"
@@ -685,6 +720,7 @@ const PROGRAMACAO = [
         titulo:      "Jogos de Tabuleiro - Lixo Zero",
         vagas:       10,
         proponentes: [{ nome: "Profª Ma. Daila Silva Seabra de Moura Fonseca", lattes: "http://lattes.cnpq.br/3852649343436952" }],
+        estudantes:  ["Alison Adriel Ventura", "Christiano Anthony Antunes Costa", "Enzo Scatena Ferraz Souza", "Lais Mayra Lourdes Urias Borges", "Lucas Grigorio Canuto"],
         local:       "Sala 109",
         tipo:        "Minicurso",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5499/"
@@ -702,10 +738,17 @@ const PROGRAMACAO = [
         horario:     "8h – 10h",
         titulo:      "Fermenta Aí! da Ciência Ao Iogurte Natural",
         vagas:       25,
-        proponentes: ["Ma. Jamile Lenhaus Detoni Cipriano"],
+        proponentes: [{ nome: "Ma. Jamile Lenhaus Detoni Cipriano", lattes: "http://lattes.cnpq.br/8437091032703263" }],
         local:       "Laboratório de Biologia · Sala T05",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5501/"
+      },
+      {
+        horario:     "9h – 12h",
+        titulo:      "Feira de Empreendedores do IFMG",
+        proponentes: [{ nome: "Profª Dra. Bárbara Regina Pinto e Oliveira", lattes: "http://lattes.cnpq.br/8477722907043174" }],
+        local:       "Corredores e Áreas de Convivência do 2º Andar",
+        tipo:        "Feira"
       },
       {
         horario:     "9h – 12h",
@@ -730,6 +773,7 @@ const PROGRAMACAO = [
         titulo:      "Jogo Interativo: Missão Lixo Zero",
         vagas:       20,
         proponentes: [{ nome: "Profª Dra. Deyse de Brito Marthe", lattes: "http://lattes.cnpq.br/8856270958151865" }],
+        estudantes:  ["Davi Antonio Vieira de Oliveira", "Haron Miranda Alves de Paiva", "Marcos Lacerda Ramos", "Vitor Scarpone Cardoso de Miranda", "Yago Henrique Ramos e Silva"],
         local:       "Sala 106",
         tipo:        "Jogo interativo",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5505/"
@@ -739,6 +783,7 @@ const PROGRAMACAO = [
         titulo:      "Cinedebate: Estrelas Além do Tempo",
         vagas:       60,
         proponentes: [{ nome: "Dra. Jorddana Rocha de Almeida", lattes: "http://lattes.cnpq.br/0277571387373051" }, { nome: "Profª Dra. Márcia Basília de Araújo", lattes: "http://lattes.cnpq.br/8568301914199725" }],
+        estudantes:  ["Alice Corrêa Martins da Costa", "Alice Oliveira Rivelli Teixeira", "Lavínia Vitória Barbosa Martins", "Rihanna Kathleen Freitas", "Nayana Cristine Gomes da Silva", "Ana Clara Miranda Quintino", "Alanis Cristine de Oliveira Almeida", "Gabriel Mateus Pereira Ribeiro", "Rafael Teixeira Dias"],
         local:       "Auditório · Sala 209",
         tipo:        "Exibição de filme",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5506/"
@@ -764,6 +809,7 @@ const PROGRAMACAO = [
         titulo:      "Transformando Lixo em Arte",
         vagas:       10,
         proponentes: [{ nome: "Profª Ma. Daila Silva Seabra de Moura Fonseca", lattes: "http://lattes.cnpq.br/3852649343436952" }],
+        estudantes:  ["Augusto Felippe Rosa dos Anjos", "Davi Leite Machado Silva", "Emelly Nicolly Oliveira dos Santos", "Guilherme Machado Soares", "Mário Matheus de Oliveira Silva", "Pedro Arthur Fernandes Inácio"],
         local:       "Sala 109",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5507/"
@@ -782,7 +828,7 @@ const PROGRAMACAO = [
         titulo:      "A Mulher Negra na Gestão de Políticas Públicas",
         vagas:       60,
         proponentes: ["Camilla Marques", { nome: "Dra. Pollyanna Nicodemos", lattes: "http://lattes.cnpq.br/3235386147526470" }, { nome: "Ana Flávia Perdigão", lattes: "http://lattes.cnpq.br/3304589961625490" }],
-        papel:       "Palestrante",
+        papel:       "Ministrante",
         local:       "Sala 110",
         tipo:        "Mesa Redonda",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5510/"
@@ -806,6 +852,7 @@ const PROGRAMACAO = [
         horario:     "13h30 – 15h30",
         titulo:      "Confecção de Jogos de Tabuleiro",
         proponentes: [{ nome: "Profª Ma. Daila Silva Seabra de Moura Fonseca", lattes: "http://lattes.cnpq.br/3852649343436952" }],
+        estudantes:  ["Bernardo Gomes Braga", "Diego Vinicius dos Santos da Cunha", "Ítalo Eloi Duarte", "Lucas Costa Aires", "May Louise Duarte Oliveira"],
         local:       "Sala 108",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5468/"
@@ -902,8 +949,9 @@ const PROGRAMACAO = [
       },
       {
         horario:     "19h – 22h",
-        titulo:      "Oficina Planejamento - E Quando Tudo é Urgente?",
-        proponentes: [{ nome: "Profª Dra. Ana Cristina Magalhaes Costa", lattes: "http://lattes.cnpq.br/8195261898909780" }],
+        titulo:      "E Quando Tudo Muda? Planejamento e Decisão em Cenários Imprevistos",
+        proponentes: [{ nome: "Prof. Dr. Sidney Pires Martins", lattes: "http://lattes.cnpq.br/7184487226482528" }, { nome: "Profª Dra. Ana Cristina Magalhaes Costa", lattes: "http://lattes.cnpq.br/8195261898909780" }],
+        papel:       "Ministrante",
         local:       "Laboratório de Projetos · Sala 201",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5479/"
@@ -987,6 +1035,14 @@ const PROGRAMACAO = [
         horario:     "9h – 12h",
         titulo:      "Pré-incubação de Empresas Desenvolvida pelo Ambiente de Inovação do IFMG, Campus Sabará",
         local:       "Sala T07",
+        livre:       true
+      },
+      {
+        horario:     "9h – 12h",
+        titulo:      "Feira de Empreendedores do IFMG",
+        proponentes: [{ nome: "Profª Dra. Bárbara Regina Pinto e Oliveira", lattes: "http://lattes.cnpq.br/8477722907043174" }],
+        local:       "Corredores e Áreas de Convivência do 2º Andar",
+        tipo:        "Feira",
         livre:       true
       },
       {
@@ -1182,9 +1238,12 @@ const PROGRAMACAO = [
       const inst = (p) => (typeof p === "object" && p.inst) ? " (" + p.inst + ")" : "";
 
       // Proponentes sem resumo: linha simples, com link do Lattes no nome
-      if (semSobre.length){
-        const who = el("p", "who");
-        who.append(el("b", null, (semSobre.length > 1 ? papel + "s" : papel) + ": "));
+      const misto = semSobre.length > 0 && comSobre.length > 0;
+      if (semSobre.length && !misto){
+        const rot = el("p", "who");
+        rot.append(el("b", null, (semSobre.length > 1 ? papel + "s" : papel) + ":"));
+        body.append(rot);
+        const who = el("div", "who-box");
         semSobre.forEach((p, idx) => {
           if (idx > 0) who.append(document.createTextNode(idx === semSobre.length - 1 ? " e " : ", "));
           const nome = typeof p === "string" ? p : p.nome;
@@ -1196,16 +1255,16 @@ const PROGRAMACAO = [
       }
 
       // Proponentes com resumo: uma linha por pessoa, que abre o resumo (sem repetir o nome)
-      if (comSobre.length > 1 && !semSobre.length){
+      if ((comSobre.length > 1 && !semSobre.length) || misto){
         const cab = el("p", "who");
         cab.append(el("b", null, papel + "s:"));
         body.append(cab);
       }
-      const rotuloNaLinha = !(comSobre.length > 1 && !semSobre.length);
+      const rotuloNaLinha = !((comSobre.length > 1 && !semSobre.length) || misto);
       comSobre.forEach(p => {
         const det = el("details", "sobre");
         const sum = el("summary");
-        const txt = el("span");
+        const txt = el("span", "nome-sobre");
         if (rotuloNaLinha) txt.append(el("b", null, papel + ": "));
         txt.append(document.createTextNode(p.nome + inst(p)));
         sum.append(txt);
@@ -1217,6 +1276,31 @@ const PROGRAMACAO = [
         det.append(corpo);
         body.append(det);
       });
+      if (misto){
+        semSobre.forEach(p => {
+          const row = el("div", "sobre-sem");
+          const nome = typeof p === "string" ? p : p.nome;
+          const a = linkLattes(p, nome);
+          row.append(a || document.createTextNode(nome + inst(p)));
+          body.append(row);
+        });
+      }
+      // Equipe/estudantes: lista longa recolhida, abre ao clicar
+      if (Array.isArray(i.estudantes) && i.estudantes.length){
+        const cab = el("p", "who");
+        cab.append(el("b", null, "Ministrantes:"));
+        body.append(cab);
+        const det = el("details", "sobre");
+        const sum = el("summary");
+        const txt = el("span");
+        txt.append(el("b", null, (i.rotuloEstudantes || "Estudantes") + " (" + i.estudantes.length + ")"));
+        sum.append(txt);
+        det.append(sum);
+        const corpo = el("div", "sobre-corpo");
+        corpo.append(el("p", null, i.estudantes.join(", ")));
+        det.append(corpo);
+        body.append(det);
+      }
       card.append(body);
 
       const side = el("div", "side");
