@@ -694,6 +694,7 @@ const PROGRAMACAO = [
         horario:     "8h – 9h",
         titulo:      "Criação de Composteira",
         proponentes: [{ nome: "Profª Ma. Daila Silva Seabra de Moura Fonseca", lattes: "http://lattes.cnpq.br/3852649343436952" }],
+        estudantes:  ["Bianca Cristina Martins", "Gustavo Henrique Lourenço", "Marina Lorenço Sette", "Samuel Augusto Sorin Patrício de Oliveira", "Sara Gleidisielle de Souza"],
         local:       "Área Externa",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5498/"
@@ -757,6 +758,7 @@ const PROGRAMACAO = [
         titulo:      "Artes com Materiais Reaproveitáveis, como Roupas e Outros Objetos",
         vagas:       15,
         proponentes: [{ nome: "Profª Dra. Aline Campos Figueiredo", lattes: "http://lattes.cnpq.br/0015935907128248" }],
+        estudantes:  ["Maria Eduarda Paizante Santos", "Lara de Meireles Rocha", "Lavinia Oliveira Pereira Pinto", "Manuela Cangussu Cacique Salles", "Bernardo Andrade Frade"],
         local:       "Sala 107",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5504/"
@@ -785,6 +787,7 @@ const PROGRAMACAO = [
         horario:     "9h – 12h",
         titulo:      "Mobilização pela Coleta Seletiva e Construção de Vasos Autoirrigáveis de Garrafa PET",
         proponentes: [{ nome: "Profª Dra. Aline Campos Figueiredo", lattes: "http://lattes.cnpq.br/0015935907128248" }],
+        estudantes:  ["Bernardo Henrique da Silva Santos", "Geovanna Vitória Martins Silva", "Ilaiara Coimbra dos Santos", "Sophia Kethellyn Silva Severino", "Sophia de Abreu Soares"],
         local:       "Sala 108",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5465/"
@@ -812,6 +815,7 @@ const PROGRAMACAO = [
         titulo:      "Mulheres da Ciência e Representação Artística",
         vagas:       15,
         proponentes: [{ nome: "Prof. Dr. Maximiliano Henrique Barbosa", lattes: "http://lattes.cnpq.br/2729038298896717" }],
+        estudantes:  ["Cecília Assunção Viana Félix", "Maria Luiza Silva Rosa"],
         local:       "Laboratório de Desenho · Sala T12",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5508/"
@@ -836,7 +840,8 @@ const PROGRAMACAO = [
       {
         horario:     "13h30 – 15h30",
         titulo:      "Vestígios Digitais: Sobre Memória e Internet",
-        proponentes: ["Mateus Torres Barbosa", "Laura Leandra Lima Carvalho", "Mariana Malloy Mota de Oliveira"],
+        proponentes: [{ nome: "Profª Dra. Luciane Silva de Almeida", lattes: "http://lattes.cnpq.br/2003686159963628" }],
+        estudantes:  ["Mateus Torres Barbosa", "Laura Leandra Lima Carvalho", "Mariana Malloy Mota de Oliveira"],
         local:       "Sala 109",
         tipo:        "Roda de Conversa",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5469/"
@@ -854,6 +859,7 @@ const PROGRAMACAO = [
         horario:     "13h30 – 16h30",
         titulo:      "Reaproveitamento de Papel",
         proponentes: [{ nome: "Profª Dra. Aline Campos Figueiredo", lattes: "http://lattes.cnpq.br/0015935907128248" }],
+        estudantes:  ["Ester Alves Oliveira", "Isabella Moreira Martins dos Santos", "Rafaela Pereira Madureira", "Maria de Souza Rocha Oliveira Reis", "Maria Vitória Torres Pimentel Pinto", "Ingrid Vitória Dias Oliveira"],
         local:       "Laboratório de Biologia · Sala T05",
         tipo:        "Oficina",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5466/"
@@ -870,6 +876,7 @@ const PROGRAMACAO = [
         horario:     "13h30 – 16h30",
         titulo:      "Projetec",
         proponentes: [{ nome: "Prof. Dr. Renato Miranda Filho", lattes: "http://lattes.cnpq.br/7395627227789576" }],
+        ministrantesTexto: "Alunos do Curso Técnico em Informática",
         local:       "Auditório",
         tipo:        "Apresentação de Trabalho",
         inscricao:   "https://suap.ifmg.edu.br/eventos/inscricao_publica/5474/"
@@ -1293,6 +1300,13 @@ const PROGRAMACAO = [
         corpo.append(el("p", null, i.estudantes.join(", ")));
         det.append(corpo);
         body.append(det);
+      }
+      // Ministrantes sem lista nominal (ex.: "Alunos do Curso Técnico em Informática")
+      if (i.ministrantesTexto){
+        const cab2 = el("p", "who");
+        cab2.append(el("b", null, "Ministrantes:"));
+        body.append(cab2);
+        body.append(el("div", "who-box", i.ministrantesTexto));
       }
       card.append(body);
 
