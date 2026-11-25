@@ -486,6 +486,7 @@ const PROGRAMACAO = [
         horario:     "9h – 12h",
         titulo:      "Feira de Empreendedores do IFMG",
         proponentes: [{ nome: "Profª Dra. Bárbara Regina Pinto e Oliveira", lattes: "http://lattes.cnpq.br/8477722907043174" }],
+        expositores: ["Ana Clara Miranda Quintino (Aluna - Doces)", "Lucas Vinícius Poeiras de Paula Cruz (Aluno - Serviço/Consórcio)", "Jamilly Rebeca Santos Sina (Aluna - chaveiros, pinturas)"],
         local:       "Corredores e Áreas de Convivência do 2º Andar",
         tipo:        "Feira"
       },
@@ -671,6 +672,7 @@ const PROGRAMACAO = [
         horario:     "19h – 22h",
         titulo:      "Feira de Empreendedores do IFMG",
         proponentes: [{ nome: "Profª Dra. Bárbara Regina Pinto e Oliveira", lattes: "http://lattes.cnpq.br/8477722907043174" }],
+        expositores: ["Lucas Vinícius Poeiras de Paula Cruz (Aluno - Serviço/Consórcio)"],
         local:       "Corredores e Áreas de Convivência do 2º Andar",
         tipo:        "Feira"
       }
@@ -742,6 +744,7 @@ const PROGRAMACAO = [
         horario:     "9h – 12h",
         titulo:      "Feira de Empreendedores do IFMG",
         proponentes: [{ nome: "Profª Dra. Bárbara Regina Pinto e Oliveira", lattes: "http://lattes.cnpq.br/8477722907043174" }],
+        expositores: ["Lucas Vinícius Poeiras de Paula Cruz (Aluno - Serviço/Consórcio)", "Jamilly Rebeca Santos Sina (Aluna - chaveiros, pinturas)"],
         local:       "Corredores e Áreas de Convivência do 2º Andar",
         tipo:        "Feira"
       },
@@ -1042,6 +1045,7 @@ const PROGRAMACAO = [
         horario:     "9h – 12h",
         titulo:      "Feira de Empreendedores do IFMG",
         proponentes: [{ nome: "Profª Dra. Bárbara Regina Pinto e Oliveira", lattes: "http://lattes.cnpq.br/8477722907043174" }],
+        expositores: ["Flaviana Bastos (NIDES/Mousses)"],
         local:       "Corredores e Áreas de Convivência do 2º Andar",
         tipo:        "Feira",
         livre:       true
@@ -1300,6 +1304,15 @@ const PROGRAMACAO = [
         cab2.append(el("b", null, "Ministrantes:"));
         body.append(cab2);
         body.append(el("div", "who-box", i.ministrantesTexto));
+      }
+      // Expositores (ex.: Feira de Empreendedores)
+      if (Array.isArray(i.expositores) && i.expositores.length){
+        const cab3 = el("p", "who");
+        cab3.append(el("b", null, "Expositores:"));
+        body.append(cab3);
+        const box3 = el("div", "who-box");
+        i.expositores.forEach(function(x){ box3.append(el("div", null, x)); });
+        body.append(box3);
       }
       card.append(body);
 
